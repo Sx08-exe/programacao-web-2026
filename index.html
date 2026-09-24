@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Metadados Essenciais de Configuração e Responsividade -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Landing Page Oficial do Concurso de Simulação de Carteiras de Investimentos. Aloque R$ 10.000,00 simulados entre Ações e FIIs e concorra a prêmios.">
+    <meta name="author" content="Programação Web">
+    
+    <!-- Título da Página no Navegador -->
+    <title>Concurso de Simulação de Carteiras de Investimentos | IBOV & IFIX</title>
+    
+    <!-- Vinculação do Arquivo de Folha de Estilos CSS Externo -->
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <!-- ======================================================================
+         CABEÇALHO DA PÁGINA (Header com Navegação e Botão de Alternância de Tema)
+         ====================================================================== -->
+    <header>
+        <div class="nav-container">
+            <!-- Logotipo do Projeto -->
+            <div class="logo">
+                <span class="logo-icone" aria-hidden="true">📈</span>
+                <span>InvestSim B3</span>
+            </div>
+
+            <!-- Menu de Navegação Semântica com Âncoras -->
+            <nav aria-label="Navegação Principal">
+                <ul>
+                    <li><a href="#regras">Regras</a></li>
+                    <li><a href="#tabela">Ativos</a></li>
+                    <li><a href="#simulador">Simulador</a></li>
+                    <li><a href="#inscricao">Inscrição</a></li>
+                    <li><a href="#material">Material</a></li>
+                </ul>
+            </nav>
+
+            <!-- Botão de Interação: Alternância de Modo Claro / Modo Escuro -->
+            <button id="btn-tema" class="btn-tema" type="button" title="Alternar entre tema claro e escuro">
+                <span id="texto-tema">🌙 Modo Escuro</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ======================================================================
+         CONTEÚDO PRINCIPAL (Main)
+         ====================================================================== -->
+    <main class="container">
+
+        <!-- ------------------------------------------------------------------
+             SEÇÃO 1: HERO / APRESENTAÇÃO DO CONCURSO
+             ------------------------------------------------------------------ -->
+        <section class="hero-section" id="inicio">
+            <span class="hero-badge">Simulação Aberta 2026</span>
+            <h1 class="hero-titulo">🏆 Concurso de Simulação de Carteiras</h1>
+            <p class="hero-subtitulo">
+                Monte a carteira de investimentos mais rentável no período de <strong>60 dias</strong>, 
+                respeitando regras rígidas de alocação e diversificação entre Ações do <strong>IBOV</strong> e FIIs do <strong>IFIX</strong>.
+            </p>
+
+            <!-- Grid de Destaques Numéricos do Concurso -->
+            <div class="hero-stats">
+                <article class="stat-card">
+                    <span class="stat-numero">R$ 10.000</span>
+                    <span class="stat-rotulo">Capital Simulado Inicial</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-numero">60 Dias</span>
+                    <span class="stat-rotulo">Duração da Competição</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-numero">Até 17</span>
+                    <span class="stat-rotulo">Limite Máximo de Ativos</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-numero">1 Livro</span>
+                    <span class="stat-rotulo">A Psicologia Financeira</span>
+                </article>
+            </div>
+
+            <!-- Botões de Ação Rápida e Interatividade no Hero -->
+            <div class="hero-botoes">
+                <a href="#inscricao" class="btn btn-primary">Fazer Inscrição Gratuita</a>
+                <a href="#simulador" class="btn btn-secondary">Simular Carteira Agora</a>
+                <!-- Botão de Apoio/Curtir com Contador Dinâmico em JavaScript -->
+                <button id="btn-curtir" class="btn btn-curtir" type="button" title="Demonstrar apoio ao concurso">
+                    ❤️ Curtir Concurso (<span id="contador-curtidas">42</span>)
+                </button>
+            </div>
+        </section>
+
+        <!-- ------------------------------------------------------------------
+             SEÇÃO 2: REGRAS OFICIAIS E DIRETRIZES
+             ------------------------------------------------------------------ -->
+        <section class="secao" id="regras">
+            <header class="secao-cabecalho">
+                <h2 class="secao-titulo">📋 Regulamento e Diretrizes do Concurso</h2>
+                <p class="secao-descricao">Conheça os critérios e parâmetros obrigatórios para a criação e submissão da sua carteira.</p>
+            </header>
+
+            <div class="cards-grid">
+                <!-- Card 1: Prazos e Capital -->
+                <article class="card">
+                    <div class="card-icone" aria-hidden="true">⏱️</div>
+                    <h3 class="card-titulo">1. Regras Gerais e Prazos</h3>
+                    <ul>
+                        <li><strong>Capital Simulado:</strong> R$ 10.000,00 por participante.</li>
+                        <li><strong>Preço Base (Início):</strong> Cotações de fechamento de <span class="destaque-amarelo">21 de setembro</span>. Início oficial no dia 22.</li>
+                        <li><strong>Prazo e Encerramento:</strong> Duração exata de 60 dias corridos, com apuração final no fechamento de <span class="destaque-amarelo">20 de novembro de 2026</span>.</li>
+                        <li><strong>Restrição de Ativos:</strong> Válidos somente ativos das carteiras teóricas oficiais do <strong>IBOV</strong> e <strong>IFIX</strong>.</li>
+                    </ul>
+                </article>
+
+                <!-- Card 2: Composição da Carteira -->
+                <article class="card">
+                    <div class="card-icone" aria-hidden="true">⚖️</div>
+                    <h3 class="card-titulo">2. Composição Obrigatória</h3>
+                    <ul>
+                        <li><strong>Tamanho Máximo:</strong> O total da carteira não pode superar <strong>17 ativos</strong>.</li>
+                        <li><strong>Ações:</strong> De 7 a 10 ações diferentes, distribuídas em, no mínimo, <strong>4 setores</strong> da economia.</li>
+                        <li><strong>FIIs (Fundos Imobiliários):</strong> De 7 a 10 fundos imobiliários diferentes, em no mínimo <strong>3 setores/segmentos</strong>.</li>
+                    </ul>
+                </article>
+
+                <!-- Card 3: Critérios de Avaliação -->
+                <article class="card">
+                    <div class="card-icone" aria-hidden="true">🎯</div>
+                    <h3 class="card-titulo">3. Critérios de Desempate</h3>
+                    <p>Critério principal: <strong>Maior rentabilidade percentual (%) total</strong>, somando valorização das cotas e proventos (dividendos) distribuídos.</p>
+                    <ol>
+                        <li><strong>Ativos no Positivo:</strong> Maior quantidade de papéis com retorno positivo.</li>
+                        <li><strong>Diversificação:</strong> Maior número de setores econômicos somados.</li>
+                        <li><strong>Ordem de Envio:</strong> Data e horário do envio da planilha.</li>
+                    </ol>
+                </article>
+
+                <!-- Card 4: Premiação Oficial -->
+                <article class="card card-premio">
+                    <div class="card-icone" aria-hidden="true">🎁</div>
+                    <h3 class="card-titulo">4. Premiação do Vencedor</h3>
+                    <p>O investidor de melhor desempenho geral receberá como reconhecimento um exemplar do best-seller mundial:</p>
+                    <p><strong>"A Psicologia Financeira"</strong> (Morgan Housel), para impulsionar seus conhecimentos práticos e tomada de decisão sobre finanças pessoais e investimentos.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ------------------------------------------------------------------
+             SEÇÃO 3: EXEMPLO PRÁTICO DE CARTEIRA COM TABELA INTERATIVA E BUSCA
+             ------------------------------------------------------------------ -->
+        <section class="secao" id="tabela">
+            <header class="secao-cabecalho">
+                <h2 class="secao-titulo">📊 Exemplo Prático de Alocação</h2>
+                <p class="secao-descricao">Veja como R$ 10.000,00 podem ser distribuídos respeitando todas as regras (15 ativos, 4 setores de ações e 3 de FIIs). Use a barra interativa abaixo para filtrar!</p>
+            </header>
+
+            <div class="tabela-container">
+                <!-- Controles Interativos: Barra de Pesquisa e Botões de Filtro -->
+                <div class="tabela-controles">
+                    <div class="busca-caixa">
+                        <label for="campo-busca" class="visually-hidden" style="position: absolute; left: -9999px;">Filtrar ativo:</label>
+                        <input type="text" id="campo-busca" class="busca-input" placeholder="🔍 Digite para filtrar (ex: ITUB4, Logística, Energia)..." autocomplete="off">
+                    </div>
+                    <div class="filtro-botoes">
+                        <button id="filtro-todos" class="btn-filtro ativo" type="button">Todos</button>
+                        <button id="filtro-acoes" class="btn-filtro" type="button">Apenas Ações</button>
+                        <button id="filtro-fiis" class="btn-filtro" type="button">Apenas FIIs</button>
+                    </div>
+                </div>
+
+                <!-- Mensagem Dinâmica do Total de Resultados Encontrados -->
+                <span id="resultado-busca" class="resultado-busca-texto">Exibindo todos os 15 ativos de exemplo.</span>
+
+                <!-- Tabela Semântica de Ativos -->
+                <div class="tabela-responsiva">
+                    <table id="tabela-ativos">
+                        <thead>
+                            <tr>
+                                <th>Setor / Segmento</th>
+                                <th>Código Ativo</th>
+                                <th>Tipo</th>
+                                <th>Cotação Fechamento (R$)</th>
+                                <th>Qtd. de Papéis</th>
+                                <th>Valor Alocado (R$)</th>
+                                <th>% Alocado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Ações -->
+                            <tr data-tipo="acao">
+                                <td>Ações - Financeiro</td>
+                                <td><strong>ITUB4</strong></td>
+                                <td><span class="badge-tipo badge-acao">Ação</span></td>
+                                <td>R$ 35,00</td>
+                                <td>20</td>
+                                <td>R$ 700,00</td>
+                                <td>7%</td>
+                            </tr>
+                            <tr data-tipo="acao">
+                                <td>Ações - Financeiro</td>
+                                <td><strong>BBAS3</strong></td>
+                                <td><span class="badge-tipo badge-acao">Ação</span></td>
+                                <td>R$ 30,00</td>
+                                <td>20</td>
+                                <td>R$ 600,00</td>
+                                <td>6%</td>
+                            </tr>
+                            <tr data-tipo="acao">
+                                <td>Ações - Energia</td>
+                                <td><strong>TAEE11</strong></td>
+                                <td><span class="badge-tipo badge-acao">Ação</span></td>
+                                <td>R$ 30,00</td>
+                                <td>20</td>
+                                <td>R$ 600,00</td>
+                                <td>6%</td>
+                            </tr>
+                            <tr data-tipo="acao">
+                                <td>Ações - Energia</td>
+                                <td><strong>EGIE3</strong></td>
+                                <td><span class="badge-tipo badge-acao">Ação</span></td>
+                                <td>R$ 40,00</td>
+                                <td>15</td>
+                                <td>R$ 600,00</td>
+                                <td>6%</td>
+                            </tr>
+                            <tr data-tipo="acao">
+                                <td>Ações - Commodities</td>
+                                <td><strong>PETR4</strong></td>
+                                <td><span class="badge-tipo badge-acao">Ação</span></td>
+                                <td>R$ 35,00</td>
+                                <td>20</td>
+                                <td>R$ 700,00</td>
+                                <td>7%</td>
+                            </tr>
+                            <tr data-tipo="acao">
+                                <td>Ações - Commodities</td>
+                                <td><strong>VALE3</strong></td>
+                                <td><span class="badge-tipo badge-acao">Ação</span></td>
+                                <td>R$ 60,00</td>
+                                <td>10</td>
+                                <td>R$ 600,00</td>
+                                <td>6%</td>
+                            </tr>
+                            <tr data-tipo="acao">
+                                <td>Ações - Saneamento</td>
+                                <td><strong>SBSP3</strong></td>
+                                <td><span class="badge-tipo badge-acao">Ação</span></td>
+                                <td>R$ 100,00</td>
+                                <td>6</td>
+                                <td>R$ 600,00</td>
+                                <td>6%</td>
+                            </tr>
+                            <tr data-tipo="acao">
+                                <td>Ações - Saneamento</td>
+                                <td><strong>CSMG3</strong></td>
+                                <td><span class="badge-tipo badge-acao">Ação</span></td>
+                                <td>R$ 20,00</td>
+                                <td>30</td>
+                                <td>R$ 600,00</td>
+                                <td>6%</td>
+                            </tr>
+
+                            <!-- Fundos Imobiliários (FIIs) -->
+                            <tr data-tipo="fii">
+                                <td>FII - Logística</td>
+                                <td><strong>BTLG11</strong></td>
+                                <td><span class="badge-tipo badge-fii">FII</span></td>
+                                <td>R$ 100,00</td>
+                                <td>8</td>
+                                <td>R$ 800,00</td>
+                                <td>8%</td>
+                            </tr>
+                            <tr data-tipo="fii">
+                                <td>FII - Logística</td>
+                                <td><strong>HGLG11</strong></td>
+                                <td><span class="badge-tipo badge-fii">FII</span></td>
+                                <td>R$ 140,00</td>
+                                <td>5</td>
+                                <td>R$ 700,00</td>
+                                <td>7%</td>
+                            </tr>
+                            <tr data-tipo="fii">
+                                <td>FII - Shoppings</td>
+                                <td><strong>XPML11</strong></td>
+                                <td><span class="badge-tipo badge-fii">FII</span></td>
+                                <td>R$ 100,00</td>
+                                <td>8</td>
+                                <td>R$ 800,00</td>
+                                <td>8%</td>
+                            </tr>
+                            <tr data-tipo="fii">
+                                <td>FII - Shoppings</td>
+                                <td><strong>VISC11</strong></td>
+                                <td><span class="badge-tipo badge-fii">FII</span></td>
+                                <td>R$ 100,00</td>
+                                <td>7</td>
+                                <td>R$ 700,00</td>
+                                <td>7%</td>
+                            </tr>
+                            <tr data-tipo="fii">
+                                <td>FII - Papel</td>
+                                <td><strong>KNCR11</strong></td>
+                                <td><span class="badge-tipo badge-fii">FII</span></td>
+                                <td>R$ 100,00</td>
+                                <td>7</td>
+                                <td>R$ 700,00</td>
+                                <td>7%</td>
+                            </tr>
+                            <tr data-tipo="fii">
+                                <td>FII - Papel</td>
+                                <td><strong>CPTS11</strong></td>
+                                <td><span class="badge-tipo badge-fii">FII</span></td>
+                                <td>R$ 10,00</td>
+                                <td>70</td>
+                                <td>R$ 700,00</td>
+                                <td>7%</td>
+                            </tr>
+                            <tr data-tipo="fii">
+                                <td>FII - Papel</td>
+                                <td><strong>MXRF11</strong></td>
+                                <td><span class="badge-tipo badge-fii">FII</span></td>
+                                <td>R$ 10,00</td>
+                                <td>60</td>
+                                <td>R$ 600,00</td>
+                                <td>6%</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="3">TOTAIS DA CARTEIRA MODELO (15 ATIVOS)</th>
+                                <th>-</th>
+                                <th>306 papéis</th>
+                                <th>R$ 10.000,00</th>
+                                <th>100%</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ------------------------------------------------------------------
+             SEÇÃO 4: SIMULADOR INTERATIVO DE ALOCAÇÃO DE CAPITAL
+             ------------------------------------------------------------------ -->
+        <section class="secao" id="simulador">
+            <header class="secao-cabecalho">
+                <h2 class="secao-titulo">🧮 Simulador Dinâmico de Alocação</h2>
+                <p class="secao-descricao">Teste proporções entre Ações e FIIs em tempo real para visualizar sua divisão de capital.</p>
+            </header>
+
+            <div class="simulador-card">
+                <div class="simulador-grid">
+                    <!-- Entradas de Dados do Simulador -->
+                    <div>
+                        <div class="campo-grupo">
+                            <label for="sim-capital" class="campo-rotulo">Capital Total a Simular (R$):</label>
+                            <input type="number" id="sim-capital" class="campo-input" value="10000" min="1000" step="500">
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="sim-pct-acoes" class="campo-rotulo">
+                                Porcentagem em Ações: <strong id="rotulo-pct-acoes">50%</strong> (FIIs: <strong id="rotulo-pct-fiis">50%</strong>)
+                            </label>
+                            <input type="range" id="sim-pct-acoes" class="campo-input" min="20" max="80" value="50" step="5" style="cursor: pointer;">
+                        </div>
+
+                        <p style="font-size: 0.9rem; color: var(--cor-texto-secundario);">
+                            💡 <em>Dica: No concurso, lembre-se de respeitar a faixa de 7 a 10 ativos em Ações (mín. 4 setores) e 7 a 10 em FIIs (mín. 3 setores).</em>
+                        </p>
+                    </div>
+
+                    <!-- Resultados Calculados do Simulador -->
+                    <div class="painel-resultado">
+                        <h3 style="margin-bottom: 16px; font-size: 1.15rem;">Divisão Estimada do Capital:</h3>
+                        
+                        <div class="painel-item">
+                            <span>Alocação em Ações:</span>
+                            <span id="valor-alocado-acoes" class="painel-item-destaque">R$ 5.000,00</span>
+                        </div>
+
+                        <div class="painel-item">
+                            <span>Alocação em FIIs:</span>
+                            <span id="valor-alocado-fiis" class="painel-item-destaque">R$ 5.000,00</span>
+                        </div>
+
+                        <!-- Barra Gráfica de Progresso Atualizada com JavaScript -->
+                        <div class="barra-progresso" title="Proporção visual de Ações vs FIIs">
+                            <div id="barra-progresso-acoes" class="progresso-acoes" style="width: 50%;"></div>
+                            <div id="barra-progresso-fiis" class="progresso-fiis" style="width: 50%;"></div>
+                        </div>
+
+                        <div class="legenda-progresso">
+                            <div><span class="indicador-cor" style="background-color: #3b82f6;"></span> Ações (Azul)</div>
+                            <div><span class="indicador-cor" style="background-color: #10b981;"></span> FIIs (Verde)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ------------------------------------------------------------------
+             SEÇÃO 5: FORMULÁRIO DE INSCRIÇÃO E PRÉ-CADASTRO
+             ------------------------------------------------------------------ -->
+        <section class="secao" id="inscricao">
+            <header class="secao-cabecalho">
+                <h2 class="secao-titulo">📝 Formulário de Inscrição Oficial</h2>
+                <p class="secao-descricao">Faça o seu pré-cadastro para receber a planilha modelo e as instruções de envio do concurso.</p>
+            </header>
+
+            <div class="form-card">
+                <form id="form-inscricao" novalidate>
+                    <div class="campo-grupo">
+                        <label for="campo-nome" class="campo-rotulo">Nome Completo do Participante: *</label>
+                        <input type="text" id="campo-nome" class="campo-input" placeholder="Ex: João da Silva" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="campo-email" class="campo-rotulo">E-mail para Recebimento da Planilha: *</label>
+                        <input type="email" id="campo-email" class="campo-input" placeholder="Ex: seuemail@exemplo.com" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="campo-qtd-ativos" class="campo-rotulo">Quantidade Pretendida de Ativos (7 a 17): *</label>
+                        <input type="number" id="campo-qtd-ativos" class="campo-input" min="7" max="17" value="15" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="campo-estrategia" class="campo-rotulo">Breve Descrição da sua Tese / Estratégia:</label>
+                        <textarea id="campo-estrategia" class="campo-textarea" rows="3" placeholder="Ex: Foco em dividendos de bancos e galpões logísticos de alto rendimento..."></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-submit-inscricao" class="btn btn-primary" style="width: 100%;">
+                        Confirmar Inscrição no Concurso
+                    </button>
+                </form>
+
+                <!-- Painel de Feedback e Confirmação da Inscrição (Manipulado via JavaScript) -->
+                <div id="mensagem-confirmacao" class="mensagem-feedback" role="alert"></div>
+            </div>
+        </section>
+
+        <!-- ------------------------------------------------------------------
+             SEÇÃO 6: MATERIAL DE ESTUDO COMPLEMENTAR (INTRODUÇÃO À RENDA VARIÁVEL)
+             ------------------------------------------------------------------ -->
+        <section class="secao" id="material">
+            <header class="secao-cabecalho">
+                <h2 class="secao-titulo">📚 Material de Estudo: Introdução à Renda Variável</h2>
+                <p class="secao-descricao">Conceitos fundamentais para você montar uma carteira vencedora com embasamento sólido.</p>
+            </header>
+
+            <article class="material-box">
+                <h3>O que são Ações?</h3>
+                <p>
+                    Uma ação é a menor fração do capital social de uma empresa. Ao adquiri-la, você se torna sócio da companhia. 
+                    Você lucra com a <strong>valorização</strong> (quando o mercado paga mais caro pela cota) e com a distribuição 
+                    periódica de lucros através dos <strong>dividendos</strong> e JCP.
+                </p>
+                <p><em>Exemplos de Setores do IBOV: Bancos, Energia Elétrica, Saneamento Básico, Commodities e Mineração.</em></p>
+            </article>
+
+            <article class="material-box">
+                <h3>O que são FIIs (Fundos Imobiliários)?</h3>
+                <p>
+                    São condomínios de investidores que reúnem recursos para aplicar no mercado imobiliário físico ou em dívidas imobiliárias. 
+                    Ao adquirir cotas de um fundo, você tem direito a receber mensalmente proventos dos aluguéis gerados por galpões logísticos, 
+                    shoppings centers ou lajes corporativas.
+                </p>
+                <p><em>Exemplos de Segmentos do IFIX: Logística, Shoppings, Papel (CRIs e títulos de dívida), Renda Urbana e Lajes Corporativas.</em></p>
+            </article>
+
+            <article class="material-box">
+                <h3>O que são os Índices IBOV e IFIX?</h3>
+                <ul>
+                    <li><strong>IBOV (Índice Bovespa):</strong> Principal termômetro do mercado acionário brasileiro. Reúne as empresas mais negociadas da B3. Quando o IBOV sobe, significa que, na média, as grandes empresas brasileiras tiveram valorização.</li>
+                    <li><strong>IFIX:</strong> Funciona com lógica análoga ao IBOV, mas mede exclusivamente o desempenho médio das cotas dos principais fundos imobiliários negociados no Brasil.</li>
+                </ul>
+            </article>
+
+            <!-- Botão de Interação: Expandir/Recolher Ferramentas Externas Gratuitas -->
+            <div style="text-align: center; margin: 24px 0;">
+                <button id="btn-toggle-dicas" class="btn btn-secondary" type="button">
+                    🔽 Ver Onde Consultar Cotações Gratuitamente
+                </button>
+            </div>
+
+            <!-- Caixa Expansível com Links e Plataformas Recomendadas (Manipulada via JS) -->
+            <div id="dicas-adicionais" class="material-box" style="display: none;">
+                <h3>Onde verificar Cotações e Composições Oficiais?</h3>
+                <p>Para montar a sua carteira competitiva de 60 dias, consulte as seguintes ferramentas gratuitas recomendadas:</p>
+                
+                <div class="links-plataformas">
+                    <div class="plataforma-card">
+                        <h4>Status Invest</h4>
+                        <p>Excelente para consultar histórico de cotações, múltiplos fundamentalistas, gráficos de preços e histórico de dividendos de ações e fundos imobiliários.</p>
+                    </div>
+                    <div class="plataforma-card">
+                        <h4>Investidor10</h4>
+                        <p>Interface intuitiva para filtrar e ordenar FIIs por segmento, dividend yield acumulado e verificar rankings setoriais completos.</p>
+                    </div>
+                    <div class="plataforma-card">
+                        <h4>Site Oficial da B3</h4>
+                        <p>A fonte regulatória primária para checar a composição teórica atualizada das carteiras do IBOVESPA e do IFIX.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================================================================
+         RODAPÉ (Footer Semântico)
+         ====================================================================== -->
+    <footer>
+        <div class="footer-conteudo">
+            <p><strong>Concurso de Simulação de Carteiras de Investimentos</strong> &copy; 2026. Todos os direitos reservados.</p>
+            <p>Desenvolvido para a Atividade de Programação Web — Integração de HTML5, CSS3, DOM e Eventos em JavaScript Puro.</p>
+            <button class="btn-topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                ⬆️ Voltar ao Topo da Página
+            </button>
+        </div>
+    </footer>
+
+    <!-- ======================================================================
+         VINCULAÇÃO DO SCRIPT JAVASCRIPT EXTERNO
+         ====================================================================== -->
+    <script src="script.js"></script>
+
+</body>
+</html>

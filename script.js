@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ======================================================================
        1. SELEÇÃO DE ELEMENTOS DO DOM (getElementById e querySelector)
        ====================================================================== */
+
+    if(JSON.parse(localStorage.getItem("darkmode"))){
+        document.body.classList.add("dark-mode");
+    }
     
     // Seleciona o botão de alternar tema claro/escuro pelo ID
     const botaoTema = document.getElementById("btn-tema");
@@ -67,6 +71,10 @@ document.addEventListener("DOMContentLoaded", function () {
     botaoTema.addEventListener("click", function () {
         // Alterna a classe 'dark-mode' no corpo da página
         document.body.classList.toggle("dark-mode");
+
+        const darkModeAtivado = document.body.classList.contains("dark-mode")
+
+        localStorage.setItem("darkmode", JSON.stringify(darkModeAtivado))
 
         // Verifica se a classe dark-mode está ativa no momento
         const estaNoModoEscuro = document.body.classList.contains("dark-mode");

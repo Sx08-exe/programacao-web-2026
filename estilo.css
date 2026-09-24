@@ -25,7 +25,8 @@
     --cor-destaque-suave: #fffbeb;
     --cor-erro: #ef4444;
     --cor-erro-suave: #fef2f2;
-    
+    --fundo-texto: #fffbeb
+
     /* Sombras e Bordas */
     --sombra-card: 0 4px 12px rgba(15, 23, 42, 0.06);
     --sombra-card-hover: 0 10px 25px rgba(15, 23, 42, 0.12);
@@ -35,7 +36,7 @@
 }
 
 /* Variáveis para Tema Escuro */
-body.dark-mode {
+:root .dark-mode {
     --cor-fundo: #0b1120;
     --cor-fundo-card: #1e293b;
     --cor-fundo-header: #131d31;
@@ -48,6 +49,8 @@ body.dark-mode {
     --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.4);
     --sombra-card-hover: 0 10px 25px rgba(0, 0, 0, 0.6);
     --sombra-header: 0 2px 10px rgba(0, 0, 0, 0.5);
+    --fundo-texto: #fffbeb;
+    --cor-destaque-suave: #7e6812;
 }
 
 /* --------------------------------------------------------------------------
@@ -379,7 +382,7 @@ nav ul li a:hover {
 }
 
 .destaque-amarelo {
-    background-color: var(--cor-destaque-suave);
+    background-color: var(--fundo-texto);
     color: #b45309;
     padding: 2px 6px;
     border-radius: 4px;

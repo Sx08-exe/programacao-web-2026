@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineSereia | Catálogo de Filmes e Séries</title>
+  <meta name="description" content="Mini-sistema de cadastro de audiovisual com JavaScript, objetos, JSON e localStorage.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-glow"></div>
+
+  <div class="container">
+    <header class="app-header">
+      <div class="logo-area">
+        <span class="logo-icon">🎬</span>
+        <div>
+          <h1>CineSereia</h1>
+          <p class="subtitle">Mini-sistema de Cadastro de audiovisual</p>
+        </div>
+      </div>
+      <div class="header-badge">
+        <span class="status-indicator"></span>
+        <span id="contador-badge">0 cadastrados</span>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Formulário de Cadastro -->
+      <section class="card form-card">
+        <div class="card-header">
+          <h2>Novo Registro</h2>
+          <p>Preencha os dados da obra para adicionar ao seu catálogo local.</p>
+        </div>
+
+        <form id="form-filme" class="filme-form" novalidate>
+          <div class="form-group">
+            <label for="titulo">Título da Obra <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="titulo" 
+              name="titulo" 
+              placeholder="Ex: Interestelar, Breaking Bad..." 
+              required
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tipo">Tipo <span class="required">*</span></label>
+              <select id="tipo" name="tipo" required>
+                <option value="Filme">🎬 Filme</option>
+                <option value="Série">📺 Série</option>
+                <option value="Documentário">📽️ Documentário</option>
+                <option value="Animação">🎨 Animação</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="genero">Gênero <span class="required">*</span></label>
+              <select id="genero" name="genero" required>
+                <option value="" disabled selected>Selecione um gênero</option>
+                <option value="Ficção Científica">Ficção Científica</option>
+                <option value="Ação">Ação</option>
+                <option value="Drama">Drama</option>
+                <option value="Comédia">Comédia</option>
+                <option value="Suspense">Suspense</option>
+                <option value="Terror">Terror</option>
+                <option value="Romance">Romance</option>
+                <option value="Fantasia">Fantasia</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ano">Ano de Lançamento <span class="required">*</span></label>
+              <input 
+                type="number" 
+                id="ano" 
+                name="ano" 
+                min="1888" 
+                max="2099" 
+                placeholder="Ex: 2024" 
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="nota">Nota (0 a 10) <span class="required">*</span></label>
+              <input 
+                type="number" 
+                id="nota" 
+                name="nota" 
+                min="0" 
+                max="10" 
+                step="0.1" 
+                placeholder="Ex: 9.5" 
+                required
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="sinopse">Breve Sinopse ou Comentário</label>
+            <textarea 
+              id="sinopse" 
+              name="sinopse" 
+              rows="3" 
+              placeholder="Adicione um breve comentário pessoal ou sinopse (opcional)..."
+            ></textarea>
+          </div>
+
+          <button type="submit" id="btn-salvar" class="btn btn-primary">
+            <span>➕ Adicionar Registro</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Painel de Registros Cadastrados -->
+      <section class="card list-card">
+        <div class="card-header list-header">
+          <div>
+            <h2>Obras Cadastradas</h2>
+            <p>Registros salvos no localStorage do seu navegador.</p>
+          </div>
+          <button type="button" id="btn-limpar" class="btn btn-danger-outline" title="Apagar todos os registros do localStorage">
+            🗑️ Limpar Todos
+          </button>
+        </div>
+
+        <div id="lista-vazia" class="empty-state">
+          <div class="empty-icon">🍿</div>
+          <h3>Nenhum registro encontrado</h3>
+          <p>Utilize o formulário ao lado para cadastrar filmes e séries no catálogo!</p>
+        </div>
+
+        <div id="container-registros" class="cards-grid">
+          <!-- Os cards serão desenhados dinamicamente via JS percorrendo o array com for...of -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
